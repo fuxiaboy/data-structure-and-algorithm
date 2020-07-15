@@ -1,5 +1,5 @@
 class Node(object):
-	"""结点"""
+	"""单向链表的结点"""
 
 	def __init__(self, elem):
 		self.elem = elem
@@ -14,7 +14,7 @@ class SingleLinkList(object):
 
 	def is_empty(self):
 		"""判断链表是否为空"""
-		return self.__head == None
+		return self.__head is None
 
 	def length(self):
 		"""链表长度"""
@@ -22,7 +22,7 @@ class SingleLinkList(object):
 		cur = self.__head
 		# count：记录数量
 		count = 0
-		while cur != None:
+		while cur is not None:
 			count += 1
 			cur = cur.next
 		return count
@@ -30,7 +30,7 @@ class SingleLinkList(object):
 	def travel(self):
 		"""遍历整个链表"""
 		cur = self.__head
-		while cur != None:
+		while cur is not None:
 			print(cur.elem, end=" ")
 			cur = cur.next
 		print("")
@@ -48,7 +48,7 @@ class SingleLinkList(object):
 			self.__head = node
 		else:
 			cur = self.__head
-			while cur.next != None:
+			while cur.next is not None:
 				cur = cur.next
 			cur.next = node
 
@@ -78,7 +78,7 @@ class SingleLinkList(object):
 
 		cur = self.__head
 		pre = None
-		while cur != None:
+		while cur is not None:
 			if cur.elem == item:
 				# 先判断此结点是否是头结点				
 				if cur == self.__head:  # 头结点
@@ -113,7 +113,7 @@ class SingleLinkList(object):
 		"""查找节点是否存在"""
 
 		cur = self.__head
-		while cur != None:
+		while cur is not None:
 			if cur.elem == item:
 				return True
 			else:
@@ -129,11 +129,5 @@ if __name__ == "__main__":
 	sll.append(4)
 	sll.append(5)
 	sll.append(6)
-	sll.travel()
-
-	sll.remove(1)
-	sll.travel()
-
-	sll.remove(6)
-	sll.travel()
-
+	
+	print(sll.length())

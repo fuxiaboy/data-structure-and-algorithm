@@ -1,5 +1,5 @@
 class Node(object):
-	"""结点"""
+	"""双向链表的结点"""
 
 	def __init__(self, item):
 		self.elem = item
@@ -23,7 +23,7 @@ class DoubleLinkList(object):
 		cur = self.__head
 		# count：记录数量
 		count = 0
-		while cur != None:
+		while cur is not None:
 			count += 1
 			cur = cur.next
 		return count
@@ -31,7 +31,7 @@ class DoubleLinkList(object):
 	def travel(self):
 		"""遍历整个链表"""
 		cur = self.__head
-		while cur != None:
+		while cur is not None:
 			print(cur.elem, end=" ")
 			cur = cur.next
 		print("")
@@ -54,7 +54,7 @@ class DoubleLinkList(object):
 			self.__head = node
 		else:
 			cur = self.__head
-			while cur.next != None:
+			while cur.next is not None:
 				cur = cur.next
 			cur.next = node
 			node.prev = cur
@@ -86,7 +86,7 @@ class DoubleLinkList(object):
 	def remove(self, item):
 		"""删除结点"""
 		cur = self.__head
-		while cur != None:
+		while cur is not None:
 			if cur.elem == item:
 				# 先判断此结点是否是头结点		
 				# 头结点		
@@ -106,10 +106,10 @@ class DoubleLinkList(object):
 
 
 	def search(self, item):
-		"""查找节点是否存在"""
+		"""查找结点是否存在"""
 
 		cur = self.__head
-		while cur != None:
+		while cur is not None:
 			if cur.elem == item:
 				return True
 			else:

@@ -1,5 +1,5 @@
 class Node(object):
-	"""结点"""
+	"""单向循环链表的结点"""
 
 	def __init__(self, elem):
 		self.elem = elem
@@ -16,7 +16,7 @@ class SingleCircleLinkList(object):
 
 	def is_empty(self):
 		"""判断链表是否为空"""
-		return self.__head == None
+		return self.__head is None
 
 	def length(self):
 		"""链表长度"""
@@ -121,13 +121,13 @@ class SingleCircleLinkList(object):
 		if cur.elem == item:
 			if cur == self.__head:
 				# 链表只有一个结点
-				self.head = None
+				self.__head = None
 			else:
 				pre.next = cur.next
 
 
 	def search(self, item):
-		"""查找节点是否存在"""
+		"""查找结点是否存在"""
 		if self.is_empty():
 			return False
 		cur = self.__head
